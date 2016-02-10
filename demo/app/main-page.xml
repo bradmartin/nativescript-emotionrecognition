@@ -1,0 +1,17 @@
+<page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
+
+    <page.actionBar>
+        <action-bar title="Emotion Recognition" backgroundColor="#009688" color="#f1f1f1" android.icon="res://ic_test"/>
+    </page.actionBar>
+
+    <scroll-view>
+
+        <stack-layout>
+            <button text="hi" tap="getEmotion" />
+            <image src="http://24.media.tumblr.com/tumblr_m244ixI3ZT1rqmgcuo4_250.gif" height="200" stretch="aspectFit" />            
+            <label text="{{ emotion }}" textWrap="true" />
+        </stack-layout>
+        
+    </scroll-view>
+
+</page>
