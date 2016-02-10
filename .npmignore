@@ -1,0 +1,10 @@
+﻿# generated files
+.vs
+.vs/
+demo/
+screenshots/
+nativescript-emotionrecognition.sln
+.sln
+*.sln
+*.png
+CONTRIBUTING.md

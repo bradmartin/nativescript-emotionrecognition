@@ -1,0 +1,29 @@
+{
+  "name": "nativescript-emotionrecognition",
+  "version": "1.0.0",
+  "description": "A NativeScript wrapper to simplify HTTP requests to Microsoft's Project Oxford Emotion Recognition API.",
+  "main": "emotionrecognition.js",
+  "nativescript": {
+    "platforms": {
+      "android": "1.5.0",
+      "ios": "1.5.2"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bradmartin/nativescript-emotionrecognition"
+  },
+  "keywords": [
+    "NativeScript",
+    "native",
+    "script",
+    "Microsoft",
+    "Emotion Recognition",
+    "bradmartin",
+    "Thorum"
+  ],
+  "author": "Brad Martin <bradwaynemartin@gmail.com> (https://github.com/bradmartin)",
+  "license": "Apache-2.0",
+  "bugs": "https://github.com/bradmartin/nativescript-emotionrecognition/issues",
+  "homepage": "https://github.com/bradmartin/nativescript-emotionrecognition"
+}
