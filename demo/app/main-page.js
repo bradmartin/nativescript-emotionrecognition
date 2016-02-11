@@ -1,5 +1,6 @@
 var Observable = require("data/observable").Observable;
 var emotions = require("nativescript-emotionrecognition");
+var frame = require("ui/frame");
 var data = new Observable({});
   
  
@@ -10,8 +11,10 @@ function pageLoaded(args) {
 exports.pageLoaded = pageLoaded;
 
 function getEmotion(args) {
+    var img = frame.topmost().currentPage.getViewById("pic");
+    var imageSrc = img.src;
     try {
-        emotions.detectEmotions("http://24.media.tumblr.com/tumblr_m244ixI3ZT1rqmgcuo4_250.gif", "073024995a4d4ccb89db7e1dc03803ba")
+        emotions.detectEmotions(imageSrc, "073024995a4d4ccb89db7e1dc03803ba")
        .then(function (result) {
            console.log(result);
            data.set("emotion", result);

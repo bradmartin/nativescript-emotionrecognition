@@ -1,4 +1,5 @@
 ﻿var imageSource = require("image-source");
+var enums = require("ui/enums");
 var fs = require("file-system");
 var http = require("http");
 
@@ -8,10 +9,13 @@ function detectEmotions(image, OcpApimSubscriptionKey) {
     return new Promise(function (resolve, reject) {
 
 
+        console.log('image sent: ' + image);
+
         try {
 
             if (image) {
                 var isUrl = false;
+                var headerData = null;
                 var contentHeader = null;
 
                 if (image.indexOf("://") !== -1) {
@@ -32,10 +36,16 @@ function detectEmotions(image, OcpApimSubscriptionKey) {
                     }
 
                     // take image to base64
-                    //image = imageSource.ImageSource.toBase64String()
-                    // set contentHeader here for binary image data
+                    var x = imageSource.fromFileOrResource(image);
+                    console.log(x);
+                    var base64 = x.toBase64String(enums.ImageFormat.jpg);
+
+                    headerData = { "Content-Type": "application/octet-stream", "Ocp-Apim-Subscription-Key": OcpApimSubscriptionKey }
+                    contentHeader = base64;
+
 
                 } else {
+                    headerData = { "Content-Type": "application/json", "Ocp-Apim-Subscription-Key": OcpApimSubscriptionKey };
                     contentHeader = JSON.stringify({ "url": image });
                 }
 
@@ -43,7 +53,7 @@ function detectEmotions(image, OcpApimSubscriptionKey) {
                 http.request({
                     url: emotionRecUrl,
                     method: "POST",
-                    headers: { "Content-Type": "application/json", "Ocp-Apim-Subscription-Key": OcpApimSubscriptionKey },
+                    headers: headerData,
                     content: contentHeader
                 }).then(function (response) {
                     resolve(response.content);                    

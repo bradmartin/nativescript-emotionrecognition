@@ -7,8 +7,8 @@
     <scroll-view>
 
         <stack-layout>
-            <button text="hi" tap="getEmotion" />
-            <image src="http://24.media.tumblr.com/tumblr_m244ixI3ZT1rqmgcuo4_250.gif" height="200" stretch="aspectFit" />            
+            <button text="Get Emotion" tap="getEmotion" />
+            <image id="pic" src="~/images/gabe.jpg" height="200" stretch="aspectFit" />            
             <label text="{{ emotion }}" textWrap="true" />
         </stack-layout>
         
